@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h3 style="text-align: center; color: teal;">This is Google Api map</h3>
+    <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum autem animi excepturi illo a temporibus, veritatis sequi culpa voluptatibus minus corporis earum, cum tempora consectetur, aperiam quisquam. Rerum error eum odio, illum tempore repellat est sint! Esse distinctio alias ipsa.</p>
+
+    <div id="googleMap" style="width:100%;height:400px;"></div>
+    <script>
+
+        let locations = {};
+
+        navigator.geolocation.getCurrentPosition((position) => {
+            const p = position.coords;
+            locations = { lat: p.latitude, lng: p.longitude }
+
+            // The map, centered at locations
+            const map = new google.maps.Map(document.getElementById("googleMap"), {
+                zoom: 12,
+                center: locations,
+            });
+            // The marker, positioned at locations
+            const marker = new google.maps.Marker({
+                position: locations,
+                map: map,
+            });
+        })
+    </script>
+
+
+</body>
+
+</html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeSUCqsn_suPSv70touWTATyEP_f3eZdY"></script>
